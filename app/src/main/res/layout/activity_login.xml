@@ -42,6 +42,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
         android:text="Login"
+        android:id="@+id/btnlogin"
         />
     <ImageView
         android:layout_width="250dp"
