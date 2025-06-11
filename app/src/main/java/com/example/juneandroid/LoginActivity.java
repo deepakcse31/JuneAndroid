@@ -2,6 +2,7 @@ package com.example.juneandroid;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         edtUserName=findViewById(R.id.edtphone);
         edtPassword=findViewById(R.id.edtpassword);
         btnLogin=findViewById(R.id.btnlogin);
-
+        SharedPreferences sharedPreferences=getSharedPreferences("MyPrefs",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
                 String password=edtPassword.getText().toString();
                 if (userId.equals("1234567890") && password.equals("123456"))
                 {
+                    editor.putString("isLoggedIn","true");
+                    editor.apply();
                     Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
                     startActivity(intent);
                     //Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_SHORT).show();
