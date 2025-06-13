@@ -26,7 +26,7 @@ public class SplashActivty extends AppCompatActivity {
                 String isLoggedIn=sharedPreferences.getString("isLoggedIn","false");
                 if (isLoggedIn.equals("true"))
                 {
-                    Intent intent=new Intent(getApplicationContext(),TextWatcherActvity.class);
+                    Intent intent=new Intent(getApplicationContext(),PopUpActivity.class);
                     startActivity(intent);
                 }else{
                     Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
